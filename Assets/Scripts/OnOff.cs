@@ -9,6 +9,8 @@ public class OnOff : MonoBehaviour
     public SpriteRenderer sr;
     public OnOff script;
     public GameObject go;
+    public AudioSource audioS;
+    public AudioClip clip;
   
     
     void Update()
@@ -25,6 +27,15 @@ public class OnOff : MonoBehaviour
             sr.enabled = true;
             //script.enabled = true;
             go.SetActive(true);
+        }
+
+        if (Input.GetKey(KeyCode.Space))
+        {
+            if(audioS.isPlaying == false)
+            {
+                audioS.PlayOneShot(clip);
+            }
+          
         }
     }
 }
