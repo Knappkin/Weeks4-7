@@ -490,7 +490,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 6
-  reaction: {fileID: 215874766}
+  bubble: {fileID: 215874766}
+  reaction: {fileID: 393556481}
+  item: {fileID: 1557206379}
+  reactionOptions:
+  - {fileID: 21300000, guid: a0cbeb2a811502e428a77309753424ca, type: 3}
+  - {fileID: 21300000, guid: e3ef8ec43fbc5c94a84c5e237004b076, type: 3}
+  - {fileID: 21300000, guid: 3842729797771574e957e7ce1eb05a4d, type: 3}
+  - {fileID: 21300000, guid: e60a70b5852829645972836565f57a35, type: 3}
+  - {fileID: 21300000, guid: df54c77a71270df469d2d82fdca82b29, type: 3}
+  - {fileID: 21300000, guid: 5ce39aeffbd7dc542bc09b61554f7405, type: 3}
+  - {fileID: 21300000, guid: 142d96cb8316564449617fb92ab73790, type: 3}
 --- !u!1 &1400085389
 GameObject:
   m_ObjectHideFlags: 0
