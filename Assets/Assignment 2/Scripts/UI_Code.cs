@@ -7,11 +7,12 @@ public class UI_Code : MonoBehaviour
 
     public GameObject filter;
     public GameObject parentCanvas;
-
+    GameObject filterUsed;
+    bool isOn;
     // Start is called before the first frame update
     void Start()
     {
-        
+        isOn = false;
     }
 
     // Update is called once per frame
@@ -22,6 +23,15 @@ public class UI_Code : MonoBehaviour
 
     public void addFilter()
     {
-        Instantiate(filter, parentCanvas.transform);
+        if (!isOn)
+        {
+         filterUsed = Instantiate(filter, parentCanvas.transform);
+            isOn = true;
+        }
+        else
+        {
+            Destroy(filterUsed);
+            isOn = false;
+        }
     }
 }
