@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class UI_Code : MonoBehaviour
 {
+
+    public GameObject filter;
+    public GameObject parentCanvas;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +22,6 @@ public class UI_Code : MonoBehaviour
 
     public void addFilter()
     {
-
+        Instantiate(filter, parentCanvas.transform);
     }
 }
