@@ -34,4 +34,9 @@ public class UI_Code : MonoBehaviour
             isOn = false;
         }
     }
+
+    public void startTimer()
+    {
+
+    }
 }
