@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class barrel : MonoBehaviour
 {
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -13,6 +15,9 @@ public class barrel : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mousePos.z = 0;
+        Vector2 direction = mousePos - transform.position;
+        transform.up = direction;
     }
 }
