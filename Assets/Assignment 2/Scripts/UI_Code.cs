@@ -11,6 +11,7 @@ public class UI_Code : MonoBehaviour
     public GameObject picTimer;
     GameObject filterUsed;
     GameObject picTimerUsed;
+
     bool isOn;
 
     float t;
@@ -20,8 +21,6 @@ public class UI_Code : MonoBehaviour
     void Start()
     {
         isOn = false;
-
- 
 
     }
 
