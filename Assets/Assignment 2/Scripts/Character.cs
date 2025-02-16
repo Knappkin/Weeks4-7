@@ -34,6 +34,4 @@ public class Character : MonoBehaviour
 
     }
 
-
-
 }
