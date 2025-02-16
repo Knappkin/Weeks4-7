@@ -743,7 +743,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &462499617
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2831,6 +2831,7 @@ MonoBehaviour:
   filter: {fileID: 2684066537874102593, guid: 6efe36097e3fb7345916a8ebf3262246, type: 3}
   parentCanvas: {fileID: 1585692952}
   picTimer: {fileID: 6530917240362927724, guid: 799b4f269d0d7a64b9aad7001cb11c88, type: 3}
+  filterDrop: {fileID: 462499616}
 --- !u!1 &1719674865
 GameObject:
   m_ObjectHideFlags: 0
