@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,6 +10,7 @@ public class UI_Code : MonoBehaviour
     public GameObject filter;
     public GameObject parentCanvas;
     public GameObject picTimer;
+    public GameObject filterDrop;
     GameObject filterUsed;
     GameObject picTimerUsed;
 
@@ -21,6 +23,8 @@ public class UI_Code : MonoBehaviour
     void Start()
     {
         isOn = false;
+
+        filterDrop.SetActive(false);
 
     }
 
@@ -41,11 +45,13 @@ public class UI_Code : MonoBehaviour
         {
          filterUsed = Instantiate(filter, parentCanvas.transform);
             isOn = true;
+            filterDrop.SetActive (true);
         }
         else
         {
             Destroy(filterUsed);
             isOn = false;
+            filterDrop.SetActive (false);
         }
     }
 
