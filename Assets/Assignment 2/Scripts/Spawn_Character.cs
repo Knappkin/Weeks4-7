@@ -10,19 +10,42 @@ public class Spawn_Character : MonoBehaviour
     public Slider panH;
     public Slider panV;
     public Slider zoomBar;
+
     public Sprite[] neutralSprites;
     public Sprite[] smileSprites;
+
+    List<GameObject> currentFrogs;
+    GameObject spriteInstance;
+    
 
 
     // Start is called before the first frame update
     void Start()
     {
-        Instantiate(character, new Vector3(3,0,0), Quaternion.identity);
+        currentFrogs = new List<GameObject>();
+
+        spriteInstance = Instantiate(character, new Vector3(0,0,0), Quaternion.identity);
+
+
+        currentFrogs.Add(spriteInstance);
+
+        Character characterScript = spriteInstance.GetComponent<Character>();
+        characterScript.spawner = this;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
+    }
+
+    public void takePic()
+    {
+        for(int i = 0; i < currentFrogs.Count; i++)
+        {
+            currentFrogs[i].GetComponent<Character>().isSmiling = true;
+            currentFrogs[i].GetComponent<Character>().smileTimer();
+        }
+    
     }
 }
