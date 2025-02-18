@@ -10,6 +10,8 @@ public class Spawn_Character : MonoBehaviour
     public Slider panH;
     public Slider panV;
     public Slider zoomBar;
+    public Sprite[] neutralSprites;
+    public Sprite[] smileSprites;
 
 
     // Start is called before the first frame update
