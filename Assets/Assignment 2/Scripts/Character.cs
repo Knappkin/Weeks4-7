@@ -36,6 +36,11 @@ public class Character : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+    
+        if (!isSmiling)
+        {
+            smileT = t;
+        }
         t += Time.deltaTime;
         Vector2 pos = transform.position;
 
@@ -50,7 +55,10 @@ public class Character : MonoBehaviour
 
         transform.position = pos;
 
-        if(isSmiling )
+        Vector2 screenPos = Camera.main.WorldToScreenPoint(pos);
+
+
+        if (isSmiling )
         {
             gameObject.GetComponent<SpriteRenderer>().sprite = spawner.smileSprites[whichChar];
         }
@@ -71,6 +79,11 @@ public class Character : MonoBehaviour
         if (startMoving )
         {
             moveDist += 3 * Time.deltaTime;
+        }
+
+        if (screenPos.x < -50)
+        {
+            Destroy(gameObject);
         }
 
     }
