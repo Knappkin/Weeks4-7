@@ -18,7 +18,6 @@ public class Character : MonoBehaviour
 
     public bool isSmiling = false;
     bool firstMove;
-    float firstMTimer;
 
     int whichChar;
 
@@ -30,11 +29,10 @@ public class Character : MonoBehaviour
     void Start()
     {
         firstMove = true;
-        firstMTimer = 0;
         whichChar = Random.Range(0, 6);
         gameObject.GetComponent<SpriteRenderer>().sprite = spawner.neutralSprites[whichChar];
         print(whichChar);
-        moveDist = -10;
+       // moveDist = Camera.main.ScreenToWorldPoint(new Vector3();
     }
 
     // Update is called once per frame
