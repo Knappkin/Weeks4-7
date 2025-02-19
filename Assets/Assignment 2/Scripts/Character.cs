@@ -17,6 +17,8 @@ public class Character : MonoBehaviour
     float smileT;
 
     public bool isSmiling = false;
+    bool firstMove;
+    float firstMTimer;
 
     int whichChar;
 
@@ -27,10 +29,12 @@ public class Character : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        firstMove = true;
+        firstMTimer = 0;
         whichChar = Random.Range(0, 6);
         gameObject.GetComponent<SpriteRenderer>().sprite = spawner.neutralSprites[whichChar];
         print(whichChar);
+        moveDist = -10;
     }
 
     // Update is called once per frame
@@ -49,13 +53,14 @@ public class Character : MonoBehaviour
 
         transform.localScale = Vector3.one * spawner.zoomBar.value;
 
-        pos.x = Mathf.Lerp(-5,5,hPan)*-1 - moveDist;
+        pos.x = Mathf.Lerp(-4,4,hPan)*-1 - moveDist;
 
         pos.y = Mathf.Lerp(minHeight,maxHeight,vPan)*-1;
 
         transform.position = pos;
 
         Vector2 screenPos = Camera.main.WorldToScreenPoint(pos);
+       
 
 
         if (isSmiling )
@@ -82,11 +87,22 @@ public class Character : MonoBehaviour
             moveDist += 3 * Time.deltaTime;
         }
 
-        if (screenPos.x < -50)
+        if (screenPos.x < -100)
         {
             spawner.currentFrogs.Remove(gameObject);
             Destroy(gameObject);
         }
+
+        if (firstMove && pos.x < Screen.width/2)
+        {
+            moveDist += 3 * Time.deltaTime;
+        }
+        if (firstMove && t > 3.5)
+        {
+            firstMove = false;
+        }
+
+
 
     }
 

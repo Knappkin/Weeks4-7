@@ -42,6 +42,12 @@ public class UI_Code : MonoBehaviour
         if (picTimerUsed != null )
         {
             picTimerUsed.GetComponent<Slider>().value = t - startT;
+
+            if(picTimerUsed.GetComponent<Slider>().value >= 3 )
+            {
+
+                Destroy(picTimerUsed);
+            }
         }
 
         if (flashUsed != null )
@@ -59,7 +65,7 @@ public class UI_Code : MonoBehaviour
         {
             
         }
-        if (canFlash && t-startT >= 3)
+        if (canFlash && picTimerUsed.GetComponent<Slider>().value >= 3)
         {
             createFlash();
             canFlash = false;
@@ -89,8 +95,6 @@ public class UI_Code : MonoBehaviour
         startT = t;
         picTimerUsed = Instantiate (picTimer, parentCanvas.transform);
 
-        Destroy(picTimerUsed, 3);
-        //timer.enabled = true;
     }
 
     void createFlash()
