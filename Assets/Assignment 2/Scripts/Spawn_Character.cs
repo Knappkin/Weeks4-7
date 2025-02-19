@@ -24,13 +24,8 @@ public class Spawn_Character : MonoBehaviour
     {
         currentFrogs = new List<GameObject>();
 
-        spriteInstance = Instantiate(character, new Vector3(0,0,0), Quaternion.identity);
-
-
-        currentFrogs.Add(spriteInstance);
-
-        Character characterScript = spriteInstance.GetComponent<Character>();
-        characterScript.spawner = this;
+        spawnFrog();
+       
     }
 
     // Update is called once per frame
@@ -47,5 +42,16 @@ public class Spawn_Character : MonoBehaviour
             currentFrogs[i].GetComponent<Character>().smileTimer();
         }
     
+    }
+
+    public void spawnFrog()
+    {
+        spriteInstance = Instantiate(character, new Vector3(0, 0, 0), Quaternion.identity);
+
+
+        currentFrogs.Add(spriteInstance);
+
+        Character characterScript = spriteInstance.GetComponent<Character>();
+        characterScript.spawner = this;
     }
 }

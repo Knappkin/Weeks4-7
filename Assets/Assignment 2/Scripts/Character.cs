@@ -74,6 +74,7 @@ public class Character : MonoBehaviour
             isSmiling = false;
             smileT = 0;
             startMoving = true;
+            spawner.spawnFrog();
         }
 
         if (startMoving )
