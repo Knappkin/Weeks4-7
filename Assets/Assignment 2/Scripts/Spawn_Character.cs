@@ -14,7 +14,7 @@ public class Spawn_Character : MonoBehaviour
     public Sprite[] neutralSprites;
     public Sprite[] smileSprites;
 
-    List<GameObject> currentFrogs;
+   public List<GameObject> currentFrogs;
     GameObject spriteInstance;
     
 

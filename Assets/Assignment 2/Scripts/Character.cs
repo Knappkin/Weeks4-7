@@ -84,6 +84,7 @@ public class Character : MonoBehaviour
 
         if (screenPos.x < -50)
         {
+            spawner.currentFrogs.Remove(gameObject);
             Destroy(gameObject);
         }
 

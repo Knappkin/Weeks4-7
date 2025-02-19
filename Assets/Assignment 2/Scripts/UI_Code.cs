@@ -6,18 +6,23 @@ using UnityEngine.UI;
 
 public class UI_Code : MonoBehaviour
 {
-
+    public AnimationCurve flashCurve;
     public GameObject filter;
+    public GameObject flash;
     public GameObject parentCanvas;
     public GameObject picTimer;
     public GameObject filterDrop;
     GameObject filterUsed;
     GameObject picTimerUsed;
+    GameObject flashUsed;
+    float flashOpacity;
 
     bool isOn;
+    bool canFlash;
 
     float t;
     float startT;
+    float flashT;
     float timedT;
 
     void Start()
@@ -25,6 +30,7 @@ public class UI_Code : MonoBehaviour
         isOn = false;
 
         filterDrop.SetActive(false);
+        flashOpacity = 1;
 
     }
 
@@ -37,7 +43,29 @@ public class UI_Code : MonoBehaviour
         {
             picTimerUsed.GetComponent<Slider>().value = t - startT;
         }
+
+        if (flashUsed != null )
+        {
+            flashOpacity = flashCurve.Evaluate(t-flashT);
+           Image flashImage = flashUsed.GetComponent<Image>();
+            flashImage.color = new Color(255, 255, 255, flashOpacity);
+           
+        }
+
+        if (flashOpacity <= 0)
+        {
+            Destroy(flashUsed);
+        }
+        {
+            
+        }
+        if (canFlash && t-startT >= 3)
+        {
+            createFlash();
+            canFlash = false;
+        }
     }
+
 
     public void addFilter()
     {
@@ -57,9 +85,18 @@ public class UI_Code : MonoBehaviour
 
     public void startTimer()
     {
+        canFlash = true;
         startT = t;
         picTimerUsed = Instantiate (picTimer, parentCanvas.transform);
+
         Destroy(picTimerUsed, 3);
         //timer.enabled = true;
+    }
+
+    void createFlash()
+    {
+        flashT = t;
+        flashUsed = Instantiate(flash, parentCanvas.transform);
+        Destroy(flashUsed, 1);
     }
 }
