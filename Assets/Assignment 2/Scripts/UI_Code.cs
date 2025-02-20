@@ -12,7 +12,6 @@ public class UI_Code : MonoBehaviour
     public GameObject parentCanvas;
     public GameObject picTimer;
     public GameObject filterDrop;
-    TMP_Dropdown dropdown;
     public Image filtercolourUsed;
     GameObject filterUsed;
     GameObject picTimerUsed;
@@ -38,7 +37,6 @@ public class UI_Code : MonoBehaviour
         filtercolourUsed.color = filtercolours[0];
         filterDrop.SetActive(false);
         flashOpacity = 1;
-        dropdown = filterDrop.GetComponent<TMP_Dropdown>();
 
     }
 
