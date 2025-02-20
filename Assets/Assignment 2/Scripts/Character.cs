@@ -32,7 +32,7 @@ public class Character : MonoBehaviour
         whichChar = Random.Range(0, 6);
         gameObject.GetComponent<SpriteRenderer>().sprite = spawner.neutralSprites[whichChar];
         print(whichChar);
-       // moveDist = Camera.main.ScreenToWorldPoint(new Vector3();
+       moveDist = -10;
     }
 
     // Update is called once per frame

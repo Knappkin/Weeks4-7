@@ -12,11 +12,13 @@ public class UI_Code : MonoBehaviour
     public GameObject parentCanvas;
     public GameObject picTimer;
     public GameObject filterDrop;
+    TMP_Dropdown dropdown;
+    public Image filtercolourUsed;
     GameObject filterUsed;
     GameObject picTimerUsed;
     GameObject flashUsed;
     float flashOpacity;
-
+    public Color[] filtercolours;
     bool isOn;
     bool canFlash;
 
@@ -27,10 +29,16 @@ public class UI_Code : MonoBehaviour
 
     void Start()
     {
+        filtercolours[0] = new Color(255, 0, 0, 0.1f);
+        filtercolours[1] = new Color(0, 255, 0, 0.1f);
+        filtercolours[2] = new Color(0, 0, 255, 0.1f);
+        filtercolours[3] = new Color(255,255,0,0.1f);
         isOn = false;
-
+        filter.SetActive(false);
+        filtercolourUsed.color = filtercolours[0];
         filterDrop.SetActive(false);
         flashOpacity = 1;
+        dropdown = filterDrop.GetComponent<TMP_Dropdown>();
 
     }
 
@@ -77,7 +85,7 @@ public class UI_Code : MonoBehaviour
     {
         if (!isOn)
         {
-         filterUsed = Instantiate(filter, parentCanvas.transform);
+            filter.SetActive(true);
             isOn = true;
             filterDrop.SetActive (true);
         }
@@ -85,15 +93,19 @@ public class UI_Code : MonoBehaviour
         {
             Destroy(filterUsed);
             isOn = false;
+            filter.SetActive(false);
             filterDrop.SetActive (false);
         }
     }
 
     public void startTimer()
     {
-        canFlash = true;
-        startT = t;
-        picTimerUsed = Instantiate (picTimer, parentCanvas.transform);
+        if (picTimerUsed == null)
+        {
+            canFlash = true;
+            startT = t;
+            picTimerUsed = Instantiate(picTimer, parentCanvas.transform);
+        }
 
     }
 
@@ -102,5 +114,13 @@ public class UI_Code : MonoBehaviour
         flashT = t;
         flashUsed = Instantiate(flash, parentCanvas.transform);
         Destroy(flashUsed, 1);
+    }
+
+    public void changeFilter(int index)
+    {
+        filtercolourUsed.color = filtercolours[index];
+        print(index);
+        print(filtercolourUsed.color);
+
     }
 }

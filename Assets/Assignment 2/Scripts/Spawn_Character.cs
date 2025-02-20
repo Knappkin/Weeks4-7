@@ -28,11 +28,6 @@ public class Spawn_Character : MonoBehaviour
        
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 
     public void takePic()
     {
