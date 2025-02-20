@@ -38,12 +38,13 @@ public class Character : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-    
+
+        t += Time.deltaTime;
+
         if (!isSmiling)
         {
             smileT = t;
         }
-        t += Time.deltaTime;
         Vector2 pos = transform.position;
 
         hPan = spawner.panH.value;
@@ -66,10 +67,7 @@ public class Character : MonoBehaviour
             gameObject.GetComponent<SpriteRenderer>().sprite = spawner.smileSprites[whichChar];
         }
 
-        else
-        {
-            gameObject.GetComponent<SpriteRenderer>().sprite = spawner.neutralSprites[whichChar];
-        }
+
 
         if (t-smileT > 3)
         {
