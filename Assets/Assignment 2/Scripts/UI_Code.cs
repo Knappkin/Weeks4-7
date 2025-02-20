@@ -64,10 +64,6 @@ public class UI_Code : MonoBehaviour
            
         }
 
-        if (flashOpacity <= 0)
-        {
-            Destroy(flashUsed);
-        }
         {
             
         }
@@ -117,8 +113,6 @@ public class UI_Code : MonoBehaviour
     public void changeFilter(int index)
     {
         filtercolourUsed.color = filtercolours[index];
-        print(index);
-        print(filtercolourUsed.color);
 
     }
 }
